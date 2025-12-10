@@ -67,3 +67,21 @@ def add(_text: str, *_styles: int) -> str:
     for i in _styles:
         addition += cd(i)
     return addition + _text + cd(0)
+
+def rgb(red: int = 0, green: int = 0, blue: int = 0) -> str:
+    if red > 255: red = 255
+    elif red < 0: red = 0
+
+    if green > 255: green = 255
+    elif green < 0: green = 0
+
+    if blue > 255: blue = 255
+    elif blue < 0: blue = 0
+
+    return f'\x1b[38;2;{red};{green};{blue}m'
+
+# def add_rgb(text: str, *colors: int) -> str:
+    
+#     pass
+
+print(f'{rgb(255, 150, 50)}Text{cd(0)}')
