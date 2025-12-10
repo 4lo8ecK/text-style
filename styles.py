@@ -38,39 +38,32 @@ class color:
     light_white     = 97
 # end of the class
 class select:
-    default = 7,
-    black   = 40,
-    red     = 41,
-    green   = 42,
-    yellow  = 43,
-    blue    = 44,
-    purple  = 45,
-    cyan    = 46,
-    white   = 47,
+    default: int = 7
+    black: int   = 40
+    red: int     = 41
+    green: int   = 42
+    yellow: int  = 43
+    blue: int    = 44
+    purple: int  = 45
+    cyan: int    = 46
+    white: int   = 47
 
-    light_black     = 100,
-    light_red       = 101,
-    light_green     = 102,
-    light_yellow    = 103,
-    light_blue      = 104,
-    light_purple    = 105,
-    light_cyan      = 106,
-    light_white     = 107
+    grey: int           = 100
+    light_red: int      = 101
+    light_green: int    = 102
+    light_yellow: int   = 103
+    light_blue: int     = 104
+    light_purple: int   = 105
+    light_cyan: int     = 106
+    light_white: int    = 107
 # end of the class
 
-def __code(code: int = 0) -> str:
+def cd(code: int = 0) -> str:
     return f'\x1b[{code}m'
 
-def add_style(_text: str, *_styles: int) -> str:
+def add(_text: str, *_styles: int) -> str:
     addition = ''
-    
     # adding the styles of text
     for i in _styles:
-        addition += __code(i)
-
-    return addition + _text + __code(0)
-
-cd = __code
-add = add_style
-
-print(f'{cd(select.light_red)}Ещё одна проверка работоспособности{cd(0)}')
+        addition += cd(i)
+    return addition + _text + cd(0)
